@@ -3,9 +3,8 @@ from channels.generic.websocket import AsyncWebsocketConsumer
 
 class ChatConsumer(AsyncWebsocketConsumer):
     async def connect(self):
-        self.room_group_name = "chatroom"  # ✅ تحديد اسم المجموعة
+        self.room_group_name = "chatroom"
 
-        # ✅ إضافة المستخدم إلى المجموعة
         await self.channel_layer.group_add(
             self.room_group_name,
             self.channel_name
